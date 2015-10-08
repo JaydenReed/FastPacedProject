@@ -3,9 +3,6 @@
 var canvas = document.getElementById("gameCanvas");
 var context = canvas.getContext("2d");
 
-window.addEventListener('keydown', function(evt) { onKeyDown(evt); }, false);
-window.addEventListener('keyup', function(evt) { onKeyUp(evt); }, false);
-
 var startFrameMillis = Date.now();
 var endFrameMillis = Date.now();
 
@@ -16,7 +13,7 @@ var STATE_SETTINGS = 3;
 var STATE_MAINMENU = 4;
 
 // Starting Game State
-var gameState = STATE_SPLASH;
+var gameState = STATE_MAINMENU;
 
 function runSplash(deltaTime)
 {
@@ -30,7 +27,7 @@ function runSettings(deltaTime)
 
 function runMainMenu(deltaTime)
 {
-	
+	mainmenu()
 }
 
 function runGameLevel1(deltaTime)
@@ -60,6 +57,9 @@ var SCREEN_WIDTH = canvas.width;
 var SCREEN_HEIGHT = canvas.height;
 
 // Non-Constant Variables
+var MainMenuSelection = 0;
+var KeyTimer = 0;
+var keyboard = new Keyboard()
 
 // Intersect Code
 function intersects(x1, y1, w1, h1, x2, y2, w2, h2)
@@ -73,7 +73,7 @@ function intersects(x1, y1, w1, h1, x2, y2, w2, h2)
 
 function run()
 {
-	context.fillStyle = "#999999";
+	context.fillStyle = "#FFFFFF";
 	context.fillRect(0, 0, canvas.width, canvas.height);
 	
 	var deltaTime = getDeltaTime();
@@ -83,7 +83,7 @@ function run()
 		case STATE_SPLASH:
 			runSplash(deltaTime);
 			break;
-		case STATE_GAME:
+		case STATE_GAMELEVEL1:
 			runGameLevel1(deltaTime);
 			break;
 		case STATE_GAMEOVER:
