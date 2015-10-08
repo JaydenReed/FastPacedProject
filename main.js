@@ -73,7 +73,7 @@ function intersects(x1, y1, w1, h1, x2, y2, w2, h2)
 
 function run()
 {
-	context.fillStyle = "#FFFFFF";
+	context.fillStyle = "#999999";
 	context.fillRect(0, 0, canvas.width, canvas.height);
 	
 	var deltaTime = getDeltaTime();
