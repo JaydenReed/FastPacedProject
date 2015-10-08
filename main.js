@@ -58,9 +58,11 @@ var SCREEN_HEIGHT = canvas.height;
 
 // Non-Constant Variables
 var MainMenuSelection = 0;
-var SettingsMenuSelection = 0;
+var SettingsMenuSelection = 1;
 var KeyTimer = 0;
 var keyboard = new Keyboard()
+var SoundEnabled = true;
+var SoundSelection = 0;
 
 // Intersect Code
 function intersects(x1, y1, w1, h1, x2, y2, w2, h2)
