@@ -22,7 +22,7 @@ function runSplash(deltaTime)
 
 function runSettings(deltaTime)
 {
-
+	settingsmenu()
 }
 
 function runMainMenu(deltaTime)
@@ -58,6 +58,7 @@ var SCREEN_HEIGHT = canvas.height;
 
 // Non-Constant Variables
 var MainMenuSelection = 0;
+var SettingsMenuSelection = 0;
 var KeyTimer = 0;
 var keyboard = new Keyboard()
 
