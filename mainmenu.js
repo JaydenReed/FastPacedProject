@@ -55,4 +55,17 @@ function mainmenu()
 			MainMenuSelection = 1;
 		}
 	}
+	
+	if(keyboard.isKeyDown(keyboard.KEY_ENTER) == true && KeyTimer <= 0)
+	{
+		KeyTimer = 15;
+		if(MainMenuSelection == 0)
+		{
+			gameState = STATE_GAMELEVEL1
+		}
+		if(MainMenuSelection == 1)
+		{
+			gameState = STATE_SETTINGS
+		}
+	}
 }
