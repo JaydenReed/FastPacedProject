@@ -13,6 +13,9 @@ var Keyboard = function()
 	this.KEY_S = 83;
 	this.KEY_W = 87;
 	this.KEY_E = 69;
+	this.KEY_UP = 38;
+	this.KEY_DOWN = 40;
+	this.KEY_ENTER = 13;
 	this.KEY_SPACE = 32;
 	this.KEY_SHIFT = 16;
 };
