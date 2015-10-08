@@ -4,11 +4,13 @@ function settingsmenu()
 	{
 		context.fillStyle = "#000";
 		context.font = "24px Arial";
+		context.fillText("[BACK]", 426, 360);
 	}
 	else
 	{
 		context.fillStyle = "#000";
 		context.font = "24px Arial";
+		context.fillText("BACK", 433, 360);
 	}
 	
 	if(KeyTimer > 0)
