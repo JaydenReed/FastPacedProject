@@ -11,6 +11,8 @@ var STATE_GAMELEVEL1 = 1;
 var STATE_GAMEOVER = 2;
 var STATE_SETTINGS = 3;
 var STATE_MAINMENU = 4;
+var SCREEN_WIDTH = canvas.width;
+var SCREEN_HEIGHT = canvas.height;
 
 // Starting Game State
 var gameState = STATE_MAINMENU;
@@ -32,7 +34,7 @@ function runMainMenu(deltaTime)
 
 function runGameLevel1(deltaTime)
 {
-
+	level1()
 }
 
 function runGameOver(deltaTime)
