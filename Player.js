@@ -1,4 +1,4 @@
-var player = function()
+var Player = function()
 {
 	this.x = 50;
 	this.y = 50;
@@ -10,10 +10,12 @@ var player = function()
 
 Player.prototype.update = function(deltaTime)
 {
-	
+	this.sprite.update(deltaTime);
 }
 
 Player.prototype.draw = function()
 {
-	
+	context.save();
+		context.drawImage(WorldBackground.image, WorldBackground.x, WorldBackground.y, WorldBackground.width, WorldBackground.height);
+	context.restore();
 }

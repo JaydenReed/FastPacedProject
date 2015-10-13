@@ -11,8 +11,6 @@ var STATE_GAMELEVEL1 = 1;
 var STATE_GAMEOVER = 2;
 var STATE_SETTINGS = 3;
 var STATE_MAINMENU = 4;
-var SCREEN_WIDTH = canvas.width;
-var SCREEN_HEIGHT = canvas.height;
 
 // Starting Game State
 var gameState = STATE_MAINMENU;
@@ -24,17 +22,17 @@ function runSplash(deltaTime)
 
 function runSettings(deltaTime)
 {
-	settingsmenu()
+	settingsmenu(deltaTime)
 }
 
 function runMainMenu(deltaTime)
 {
-	mainmenu()
+	mainmenu(deltaTime)
 }
 
 function runGameLevel1(deltaTime)
 {
-	level1()
+	level1(deltaTime)
 }
 
 function runGameOver(deltaTime)
@@ -65,6 +63,7 @@ var KeyTimer = 0;
 var keyboard = new Keyboard()
 var SoundEnabled = true;
 var SoundSelection = 0;
+var player = new Player()
 
 // Intersect Code
 function intersects(x1, y1, w1, h1, x2, y2, w2, h2)
