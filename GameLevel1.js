@@ -14,23 +14,23 @@ function level1(deltaTime)
 	context.restore();
 
 	// Code to draw collision boxes to stop player travelling through walls, etc.
-	var boundary1 = {
-		x: 0,
-		y: 0,
-		width: 266,
-		height: 700
+	var wall1 = {
+		x: 259,
+		y: 103,
+		width: 359,
+		height: 7
 	};
-	var boundary2 = {
-		x: 0,
-		y: 0,
-		width: 940,
-		height: 110
+	var wall2 = {
+		x: 612,
+		y: 104,
+		width: 6,
+		height: 167
 	}
-	var boundary3 = {
-		x: 0,
-		y: 587,
-		width: 940,
-		height: 113
+	var wall3 = {
+		x: 612,
+		y: 263,
+		width: 116,
+		height: 7
 	}
 	var boundary4 = {
 		x: 612,
@@ -55,10 +55,10 @@ function level1(deltaTime)
 	//player.update(deltaTime);
 	context.save();
 		context.translate(player.x, player.y);
-		context.drawImage(player.image, player.width, player.height);
+		context.drawImage(player.image, player.width - player.width, player.height - player.height);
 	context.restore();
+	
+	playerMovement(wall1, wall2, wall3);
 
-	// Code to allow player movement and actions
-
-	// Code for door interaction
+	level1Doors()
 }
