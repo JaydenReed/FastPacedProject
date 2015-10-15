@@ -52,8 +52,11 @@ function level1(deltaTime)
 	}
 
 	// Code to draw player
-	player.update(deltaTime);
-	player.draw();
+	//player.update(deltaTime);
+	context.save();
+		context.translate(player.x, player.y);
+		context.drawImage(player.image, player.width, player.height);
+	context.restore();
 
 	// Code to allow player movement and actions
 
