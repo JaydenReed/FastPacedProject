@@ -40,10 +40,10 @@ function playerMovement(wall1, wall2, wall3)
 	{
 		player.x -= 4;
 	}
-	var hit = intersects(player.x, player.y, player.width, player.height, wall2.x, wall2.y, wall2.width, wall2.height);
+	var hit = intersects(player.x, player.y, player.width, player.height, wall3.x, wall3.y, wall3.width, wall3.height);
 	if(hit == true)
 	{
-		player.x -= 4;
+		player.y += 4;
 	}
 	if(keyboard.isKeyDown(keyboard.KEY_S) == true)
 	{
