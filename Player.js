@@ -28,7 +28,7 @@ var player = {
 };
 player.image.src = "ProtoPlayer.png";
 
-function playerMovement(wall1, wall2, wall3, wall4, wall5, wall6, wall7, wall8, innerWall1, innerWall2, innerWall3, innerWall4, innerWall5, innerWall6, innerWall7, innerWall8)
+function playerMovement(wall1, wall2, wall3, wall4, wall5, wall6, wall7, wall8, innerWall1, innerWall2, innerWall3, innerWall4, innerWall5, innerWall6, innerWall7, innerWall8, innerWall9, innerWall10, innerWall11, innerWall12, innerWall13, innerWall14, innerWall15, innerWall16, innerWall17, innerWall18, innerWall19, innerWall20)
 {
 	var hit = intersects(player.x, player.y, player.width, player.height, wall1.x, wall1.y, wall1.width, wall1.height);
 	if(hit == true)
@@ -109,6 +109,66 @@ function playerMovement(wall1, wall2, wall3, wall4, wall5, wall6, wall7, wall8, 
 	if(hit == true)
 	{
 		player.y += 4;
+	}
+	var hit = intersects(player.x, player.y, player.width, player.height, innerWall9.x, innerWall9.y, innerWall9.width, innerWall9.height);
+	if(hit == true)
+	{
+		player.y -= 4;
+	}
+	var hit = intersects(player.x, player.y, player.width, player.height, innerWall10.x, innerWall10.y, innerWall10.width, innerWall10.height);
+	if(hit == true)
+	{
+		player.y += 4;
+	}
+	var hit = intersects(player.x, player.y, player.width, player.height, innerWall11.x, innerWall11.y, innerWall11.width, innerWall11.height);
+	if(hit == true)
+	{
+		player.y -= 4;
+	}
+	var hit = intersects(player.x, player.y, player.width, player.height, innerWall12.x, innerWall12.y, innerWall12.width, innerWall12.height);
+	if(hit == true)
+	{
+		player.y += 4;
+	}
+	var hit = intersects(player.x, player.y, player.width, player.height, innerWall13.x, innerWall13.y, innerWall13.width, innerWall13.height);
+	if(hit == true)
+	{
+		player.x -= 4;
+	}
+	var hit = intersects(player.x, player.y, player.width, player.height, innerWall14.x, innerWall14.y, innerWall14.width, innerWall14.height);
+	if(hit == true)
+	{
+		player.x += 4;
+	}
+	var hit = intersects(player.x, player.y, player.width, player.height, innerWall15.x, innerWall15.y, innerWall15.width, innerWall15.height);
+	if(hit == true)
+	{
+		player.x -= 4;
+	}
+	var hit = intersects(player.x, player.y, player.width, player.height, innerWall16.x, innerWall16.y, innerWall16.width, innerWall16.height);
+	if(hit == true)
+	{
+		player.x += 4;
+	}
+	var hit = intersects(player.x, player.y, player.width, player.height, innerWall17.x, innerWall17.y, innerWall17.width, innerWall17.height);
+	if(hit == true)
+	{
+		player.x -= 4;
+	}
+	var hit = intersects(player.x, player.y, player.width, player.height, innerWall18.x, innerWall18.y, innerWall18.width, innerWall18.height);
+	if(hit == true)
+	{
+		player.x += 4;
+	}
+	var hit = intersects(player.x, player.y, player.width, player.height, innerWall19.x, innerWall19.y, innerWall19.width, innerWall19.height);
+	if(hit == true)
+	{
+		player.x -= 4;
+	}
+	var hit = intersects(player.x, player.y, player.width, player.height, innerWall20.x, innerWall20.y, innerWall20.width, innerWall20.height);
+	if(hit == true)
+	{
+		player.x += 4;
 	}
 	if(keyboard.isKeyDown(keyboard.KEY_S) == true)
 	{
