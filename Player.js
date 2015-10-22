@@ -23,8 +23,10 @@ var player = {
 		image: document.createElement("img"),
 		x: 355,
 		y: 440,
+		angularDirection: 0,
+		rotation: 0,
 		width: 20,
-		height: 33,
+		height: 18,
 };
 player.image.src = "ProtoPlayer.png";
 
@@ -211,5 +213,9 @@ function playerMovement(wall1, wall2, wall3, wall4, wall5, wall6, wall7, wall8, 
 	if(keyboard.isKeyDown(keyboard.KEY_D) == true && keyboard.isKeyDown(keyboard.KEY_W) == false && keyboard.isKeyDown(keyboard.KEY_S) == false)
 	{
 		player.x += 4;
+	}
+	if(keyboard.isKeyDown(keyboard.KEY_SPACE) == true)
+	{
+		
 	}
 }

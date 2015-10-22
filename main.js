@@ -55,6 +55,7 @@ function getDeltaTime() // Only call this function once per frame
 // Constant Variables
 var SCREEN_WIDTH = canvas.width;
 var SCREEN_HEIGHT = canvas.height;
+var BULLET_SPEED = 10;
 
 // Non-Constant Variables
 var MainMenuSelection = 0;
@@ -63,6 +64,7 @@ var KeyTimer = 0;
 var keyboard = new Keyboard()
 var SoundEnabled = true;
 var SoundSelection = 0;
+var bullets = [];
 //var player = new Player()
 
 // Intersect Code
