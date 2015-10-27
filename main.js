@@ -17,27 +17,30 @@ var gameState = STATE_MAINMENU;
 
 function runSplash(deltaTime)
 {
-
+	console.log ("splash")
 }
 
 function runSettings(deltaTime)
 {
 	settingsmenu(deltaTime)
+	console.log ("settingsmenu")
 }
 
 function runMainMenu(deltaTime)
 {
 	mainmenu(deltaTime)
+	console.log("mainmenu")
 }
 
 function runGameLevel1(deltaTime)
 {
 	level1(deltaTime)
+	console.log("level1")
 }
 
 function runGameOver(deltaTime)
 {
-
+	console.log("GameOver")
 }
 
 function getDeltaTime() // Only call this function once per frame
