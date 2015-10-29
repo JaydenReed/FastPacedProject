@@ -68,6 +68,7 @@ var keyboard = new Keyboard()
 var SoundEnabled = true;
 var SoundSelection = 0;
 var bullets = [];
+var Enemy = [];
 //var player = new Player()
 
 // Intersect Code
