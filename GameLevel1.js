@@ -15,6 +15,32 @@ function level1(deltaTime)
 		context.drawImage(WorldBackground.image, WorldBackground.x, WorldBackground.y, WorldBackground.width, WorldBackground.height);
 	context.restore();
 
+	// Collision boxes for rooms and enemies
+	
+	var room1 = {
+		x: 409,
+		y: 121,
+		width: 193,
+		height: 266
+	};
+	
+	var enemyDirection = new Vector2();
+	
+	var hit = intersects(player.x, player.y, player.width, player.height, room1.x, room1.y, room1.width, room1.height);
+	if(hit == true)
+	{
+		enemyDirection.set(player.x - Enemy.x, player.y - Enemy.y);
+		var distance = enemyDirection.Magnitude();
+		
+		Enemy.velocity.x = (enemyDirection.x / distance) * ENEMY_SPEED;
+		Enemy.velocity.y = (enemyDirection.y / distance) * ENEMY_SPEED;
+
+		Enemy.x += Enemy.velocity.x * deltaTime;
+		Enemy.y += Enemy.velocity.y * deltaTime;
+		
+		Enemy.rotation = Math.atan2(Enemy.y - player.y, Enemy.x - player.x) - Math.PI/2;
+	}
+	
 	// Code to draw collision boxes to stop player travelling through walls, etc.
 	var wall1 = {
 		x: 259,
@@ -388,4 +414,11 @@ function level1(deltaTime)
 	
 	// Code to draw cursor
 	DrawCursor(mouseX, mouseY)
+	
+	//Code to draw Enemy
+	context.save();
+		context.translate(Enemy.x + Enemy.width/2, Enemy.y + Enemy.height/2);
+		context.rotate(Enemy.rotation);
+		context.drawImage(Enemy.image, -Enemy.width/2, -Enemy.height/2);
+	context.restore();
 }

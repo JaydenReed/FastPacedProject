@@ -34,3 +34,8 @@ Vector2.prototype.multiplyScalar = function(num)
 	this.x = num * this.x;
 	this.y = num * this.y;
 }
+
+Vector2.prototype.Magnitude = function()
+{
+	return  Math.sqrt((this.x * this.x) + (this.y * this.y));
+};
