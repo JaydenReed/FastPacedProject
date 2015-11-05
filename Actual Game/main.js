@@ -14,7 +14,7 @@ var STATE_GAMEOVER = 3;
 var STATE_GAMELEVEL1 = 4;
 
 // Starting Game State
-var gameState = STATE_SPLASH;
+var gameState = STATE_MAINMENU;
 
 // Grabs DeltaTime
 function getDeltaTime() // Only call this function once per frame
@@ -32,6 +32,11 @@ function getDeltaTime() // Only call this function once per frame
 // Constant Variables
 
 // Non-Constant Variables
+var mainMenuSelection = 0;
+var startGameButtonGrow = true;
+var settingsButtonGrow = true;
+var KeyTimer = 0;
+var keyboard = new Keyboard()
 
 // Intersect Code
 function intersects(x1, y1, w1, h1, x2, y2, w2, h2)
@@ -52,7 +57,7 @@ function runSplash(deltaTime)
 // Runs the Main Menu
 function runMainMenu(deltaTime)
 {
-	
+	mainMenu(deltaTime)
 }
 
 // Runs the Settings Screen
@@ -70,7 +75,7 @@ function runGameOver(deltaTime)
 // Runs the first level
 function runGameLevel1(deltaTime)
 {
-	
+	GameLevel1(deltaTime)
 }
 
 // Runs the game by selecting states
