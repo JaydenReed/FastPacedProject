@@ -30,6 +30,8 @@ function getDeltaTime() // Only call this function once per frame
 }
 
 // Constant Variables
+var SCREEN_WIDTH = canvas.width;
+var SCREEN_HEIGHT = canvas.height;
 
 // Non-Constant Variables
 var mainMenuSelection = 0;
