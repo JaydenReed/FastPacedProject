@@ -39,6 +39,10 @@ var startGameButtonGrow = true;
 var settingsButtonGrow = true;
 var KeyTimer = 0;
 var keyboard = new Keyboard()
+var tutorial = 1;
+var dialogTimer = 0;
+var playerPistol = false;
+var level1PistolVisable = true;
 
 // Intersect Code
 function intersects(x1, y1, w1, h1, x2, y2, w2, h2)

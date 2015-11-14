@@ -67,6 +67,24 @@ var level1Wall11 = {
 var level1Wall12 = {
 	x: 834,
 	y: 379,
-	width: 9,
-	height: 232
+	width: 29,
+	height: 4
+};
+var level1Wall13 = {
+	x: 834,
+	y: 384,
+	width: 29,
+	height: 3
+};
+var level1Wall14 = {
+	x: 560,
+	y: 379,
+	width: 214,
+	height: 3
+};
+var level1Wall15 = {
+	x: 613,
+	y: 384,
+	width: 161,
+	height: 3
 };

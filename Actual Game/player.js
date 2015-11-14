@@ -66,6 +66,26 @@ function playerMovement()
 	{
 		player.x += 4;
 	}
+	var hit = intersects(player.x, player.y, player.width, player.height, level1Wall12.x, level1Wall12.y, level1Wall12.width, level1Wall12.height);
+	if(hit == true)
+	{
+		player.y -= 4;
+	}
+	var hit = intersects(player.x, player.y, player.width, player.height, level1Wall13.x, level1Wall13.y, level1Wall13.width, level1Wall13.height);
+	if(hit == true)
+	{
+		player.y += 4;
+	}
+	var hit = intersects(player.x, player.y, player.width, player.height, level1Wall14.x, level1Wall14.y, level1Wall14.width, level1Wall14.height);
+	if(hit == true)
+	{
+		player.y -= 4;
+	}
+	var hit = intersects(player.x, player.y, player.width, player.height, level1Wall15.x, level1Wall15.y, level1Wall15.width, level1Wall15.height);
+	if(hit == true)
+	{
+		player.y += 4;
+	}
 	
 	if(keyboard.isKeyDown(keyboard.KEY_S) == true)
 	{
