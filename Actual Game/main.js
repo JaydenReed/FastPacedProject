@@ -69,7 +69,7 @@ function runMainMenu(deltaTime)
 // Runs the Settings Screen
 function runSettings(deltaTime)
 {
-	
+	settings(deltaTime)
 }
 
 // Runs the game over screen
