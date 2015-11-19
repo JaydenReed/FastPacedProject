@@ -30,6 +30,14 @@ var soundFXButton = {
 	height: 70,
 };
 
+var backButton = {
+	image: document.createElement("img"),
+	x: 360,
+	y: 450,
+	width: 145,
+	height: 70,
+};
+
 function settings(deltaTime)
 {
 	// Draws the Background
@@ -54,6 +62,12 @@ function settings(deltaTime)
 	soundFXButton.image.src = "SoundFX.png";
 	context.save();
 		context.drawImage(soundFXButton.image, soundFXButton.x, soundFXButton.y, soundFXButton.width, soundFXButton.height);
+	context.restore();
+	
+	// Draws the Back button
+	backButton.image.src = "Back.png";
+	context.save();
+		context.drawImage(backButton.image, backButton.x, backButton.y, backButton.width, backButton.height);
 	context.restore();
 	
 	// Sets the timer for the Menu buttons
@@ -96,35 +110,11 @@ function settings(deltaTime)
 		musicButton.width = 175;
 		musicButton.height = 70;
 		musicButtonGrow = true;
-		if(musicButton.width == 350)
-		{
-			musicButtonGrow = false;
-		}
-		else if(musicButton.width == 300)
-		{
-			musicButtonGrow = true;
-		}
-		if(musicButtonGrow == true)
-		{
-			musicButton.width += 1;
-			musicButton.height += 0.3;
-		}
-		else if(musicButtonGrow == false)
-		{
-			musicButton.width -= 1;
-			musicButton.height -= 0.3;
-		}
-	}
-	else if(settingsSelection == 1)
-	{
-		musicButton.width = 175;
-		musicButton.height = 70;
-		musicButtonGrow = true;
-		if(soundFXButton.width == 210)
+		if(soundFXButton.width == 225)
 		{
 			soundFXButtonGrow = false;
 		}
-		else if(soundFXButton.width == 210)
+		else if(soundFXButton.width == 175)
 		{
 			soundFXButtonGrow = true;
 		}
@@ -139,4 +129,30 @@ function settings(deltaTime)
 			soundFXButton.height -= 0.3;
 		}
 	}
+	else if(settingsSelection == 1)
+	{
+		soundFXButton.width = 175;
+		soundFXButton.height = 70;
+		soundFXButtonGrow = true;
+		
+		if(musicButton.width == 225)
+		{
+			musicButtonGrow = false;
+		}
+		else if(musicButton.width == 175)
+		{
+			musicButtonGrow = true;
+		}
+		if(musicButtonGrow == true)
+		{
+			musicButton.width += 1;
+			musicButton.height += 0.3;
+		}
+		else if(musicButtonGrow == false)
+		{
+			musicButton.width -= 1;
+			musicButton.height -= 0.3;
+		}
+	}
+	//else if(settingsSelection == 3)
 }

@@ -41,6 +41,7 @@ var settingsButtonGrow = true;
 var settingsSelection = 1;
 var musicButtonGrow = true;
 var soundFXButtonGrow = true;
+var backButtonGrow = true;
 var KeyTimer = 0;
 var keyboard = new Keyboard()
 var tutorial = 1;
