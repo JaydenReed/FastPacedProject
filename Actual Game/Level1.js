@@ -3,6 +3,14 @@ function GameLevel1(deltaTime)
 	// Removes the cursor from the screen
 	canvas.style.cursor = "none";
 	
+	// Turns on the GameMusic and Turns off the Menu Music
+	if(GameMusicOn == true)
+	{
+		GameMusic.play();
+		MenuMusic.stop();
+		GameMusicOn = false;
+	}
+	
 	// Draws the background image of the level
 	var WorldBackground = {
 		image: document.createElement("img"),

@@ -15,7 +15,7 @@ var STATE_GAMELEVEL1 = 4;
 var STATE_GAMELEVEL2 = 5;
 
 // Starting Game State
-var gameState = STATE_MAINMENU;
+var gameState = STATE_SPLASH;
 
 // Grabs DeltaTime
 function getDeltaTime() // Only call this function once per frame
@@ -51,16 +51,26 @@ var level1PistolVisable = true;
 var splashTimer = 0;
 var MenuMusic;
 var GameMusic;
+var splashTimerOn = true;
+var GameMusicOn = true;
 
 // Creates the Menu Music
-// MenuMusic = new Howl(
-	// {
-		// urls: ["RevivingHollowBastion.ogg"],
-		// loop: true,
-		// buffer: true,
-		// volume: 0.5
-	// } );
-// musicBackground.play();
+MenuMusic = new Howl(
+{
+	urls: ["MenuMusic.mp3"],
+	loop: true,
+	buffer: true,
+	volume: 0.04
+} );
+
+// Creates the Game Music
+GameMusic = new Howl(
+{
+	urls: ["BackgroundMusic1.mp3"],
+	loop: true,
+	buffer: true,
+	volume: 0.1
+} );
 
 // Intersect Code
 function intersects(x1, y1, w1, h1, x2, y2, w2, h2)
@@ -75,7 +85,7 @@ function intersects(x1, y1, w1, h1, x2, y2, w2, h2)
 // Runs the Splash Screen
 function runSplash(deltaTime)
 {
-	
+	splashScreen(deltaTime)
 }
 
 // Runs the Main Menu
