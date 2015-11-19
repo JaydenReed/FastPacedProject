@@ -53,6 +53,7 @@ var MenuMusic;
 var GameMusic;
 var splashTimerOn = true;
 var GameMusicOn = true;
+var splashWords = 0;
 
 // Creates the Menu Music
 MenuMusic = new Howl(
