@@ -12,6 +12,7 @@ var STATE_MAINMENU = 1;
 var STATE_SETTINGS = 2;
 var STATE_GAMEOVER = 3;
 var STATE_GAMELEVEL1 = 4;
+var STATE_GAMELEVEL2 = 5;
 
 // Starting Game State
 var gameState = STATE_MAINMENU;
@@ -46,6 +47,19 @@ var tutorial = 1;
 var dialogTimer = 0;
 var playerPistol = false;
 var level1PistolVisable = true;
+var splashTimer = 0;
+var MenuMusic;
+var GameMusic;
+
+// Creates the Menu Music
+// MenuMusic = new Howl(
+	// {
+		// urls: ["RevivingHollowBastion.ogg"],
+		// loop: true,
+		// buffer: true,
+		// volume: 0.5
+	// } );
+// musicBackground.play();
 
 // Intersect Code
 function intersects(x1, y1, w1, h1, x2, y2, w2, h2)
@@ -87,6 +101,12 @@ function runGameLevel1(deltaTime)
 	GameLevel1(deltaTime)
 }
 
+// Runs the second level
+function runGameLevel2(deltaTime)
+{
+	GameLevel2(deltaTime)
+}
+
 // Runs the game by selecting states
 function run()
 {
@@ -111,6 +131,9 @@ function run()
 			break;
 		case STATE_GAMELEVEL1:
 			runGameLevel1(deltaTime);
+			break;
+		case STATE_GAMELEVEL2:
+			runGameLevel2(deltaTime);
 			break;
 	}
 }

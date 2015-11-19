@@ -86,6 +86,11 @@ function playerMovement()
 	{
 		player.y += 4;
 	}
+	var hit = intersects(player.x, player.y, player.width, player.height, level1Exit.x, level1Exit.y, level1Exit.width, level1Exit.height);
+	if(hit == true)
+	{
+		gameState = STATE_GAMELEVEL2;
+	}
 	
 	if(keyboard.isKeyDown(keyboard.KEY_S) == true)
 	{

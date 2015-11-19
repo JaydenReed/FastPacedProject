@@ -88,3 +88,9 @@ var level1Wall15 = {
 	width: 161,
 	height: 3
 };
+var level1Exit = {
+	x: 501,
+	y: 391,
+	width: 62,
+	height: 22
+};
