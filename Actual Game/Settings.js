@@ -76,17 +76,41 @@ function settings(deltaTime)
 		KeyTimer -= 1;
 	}
 	
-	// Sets the S key events for the Menu
-	if(keyboard.isKeyDown(keyboard.KEY_S) == true && KeyTimer <= 0)
+	// Sets the A key events for the Menu
+	if(keyboard.isKeyDown(keyboard.KEY_A) == true && KeyTimer <= 0)
+	{
+		KeyTimer = 15;
+		if(settingsSelection == 2)
+		{
+			settingsSelection = 0;
+		}
+		else
+		{
+			settingsSelection = 2;
+		}
+	}
+	
+	// Sets the D key events for the Menu
+	if(keyboard.isKeyDown(keyboard.KEY_D) == true && KeyTimer <= 0)
 	{
 		KeyTimer = 15;
 		if(settingsSelection == 0)
 		{
-			settingsSelection = 1;
+			settingsSelection = 2;
 		}
 		else
 		{
 			settingsSelection = 0;
+		}
+	}
+	
+	// Sets the S key events for the Menu
+	if(keyboard.isKeyDown(keyboard.KEY_S) == true && KeyTimer <= 0)
+	{
+		KeyTimer = 15;
+		if(settingsSelection == 2 || 0)
+		{
+			settingsSelection = 1;
 		}
 	}
 	
@@ -96,11 +120,7 @@ function settings(deltaTime)
 		KeyTimer = 15;
 		if(settingsSelection == 1)
 		{
-			settingsSelection = 0;
-		}
-		else
-		{
-			settingsSelection = 1;
+			settingsSelection = 0 || 2;
 		}
 	}
 	
@@ -135,6 +155,31 @@ function settings(deltaTime)
 		soundFXButton.height = 70;
 		soundFXButtonGrow = true;
 		
+		if(backButton.width == 225)
+		{
+			backButtonGrow = false;
+		}
+		else if(backButton.width == 175)
+		{
+			backButtonGrow = true;
+		}
+		if(backButtonGrow == true)
+		{
+			backButton.width += 1;
+			backButton.height += 0.3;
+		}
+		else if(backButtonGrow == false)
+		{
+			backButton.width -= 1;
+			backButton.height -= 0.3;
+		}
+	}
+	else if(settingsSelection == 2)
+	{
+		backButton.width = 175;
+		backButton.height = 70;
+		backButtonGrow = true;
+		
 		if(musicButton.width == 225)
 		{
 			musicButtonGrow = false;
@@ -154,5 +199,4 @@ function settings(deltaTime)
 			musicButton.height -= 0.3;
 		}
 	}
-	//else if(settingsSelection == 3)
 }

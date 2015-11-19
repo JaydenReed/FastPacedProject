@@ -11,6 +11,7 @@ player.image.src = "Player.png";
 
 function playerMovement()
 {
+	if (gameState == STATE_GAMELEVEL1){
 	var hit = intersects(player.x, player.y, player.width, player.height, level1Wall1.x, level1Wall1.y, level1Wall1.width, level1Wall1.height);
 	if(hit == true)
 	{
@@ -86,11 +87,13 @@ function playerMovement()
 	{
 		player.y += 4;
 	}
+}
+	
 	var hit = intersects(player.x, player.y, player.width, player.height, level1Exit.x, level1Exit.y, level1Exit.width, level1Exit.height);
 	if(hit == true)
 	{
 		gameState = STATE_GAMELEVEL2;
-	}
+	}	
 	
 	if(keyboard.isKeyDown(keyboard.KEY_S) == true)
 	{
