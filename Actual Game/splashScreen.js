@@ -30,6 +30,17 @@ function splashScreen(deltaTime)
 		context.drawImage(splashBackground.image, splashBackground.x, splashBackground.y, splashBackground.width, splashBackground.height);
 	context.restore();
 	
+	if(KeyTimer > 0)
+	{
+		KeyTimer -= 1;
+	}
+	
+	if(keyboard.isKeyDown(keyboard.KEY_ENTER) == true & KeyTimer <= 0)
+	{
+		KeyTimer = 15;
+		gameState = STATE_MAINMENU;
+	}
+	
 	// Adds 1 to the timer
 	if(splashTimerOn == true)
 	{

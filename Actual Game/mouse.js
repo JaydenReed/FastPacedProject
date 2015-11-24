@@ -54,7 +54,10 @@ else
 //-----------------
 function canvasClick(event)
 {
-	// playerShoot();
+	if(playerPistol == true)
+	{
+		playerShoot();
+	}
 }
 
 function mouseMove(event)

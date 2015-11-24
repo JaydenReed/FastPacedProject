@@ -24,6 +24,22 @@ function GameLevel1(deltaTime)
 		context.drawImage(WorldBackground.image, WorldBackground.x, WorldBackground.y, WorldBackground.width, WorldBackground.height);
 	context.restore();
 	
+	if(level1Door.broken == false)
+	{
+		context.save();
+			context.drawImage(level1Door.image, level1Door.x, level1Door.y, level1Door.width, level1Door.height);
+		context.restore();
+	}
+	if(level3Door.broken == false)
+	{
+		context.save();
+			context.drawImage(level3Door.image, level3Door.x, level3Door.y, level3Door.width, level3Door.height);
+		context.restore();
+	}
+	context.save();
+		context.drawImage(level2Door.image, level2Door.x, level2Door.y, level2Door.width, level2Door.height);
+	context.restore();
+	
 	// Draws the player
 	player.rotation = Math.atan2(player.y - mouseY, player.x - mouseX) + Math.PI/2;
 	
@@ -135,6 +151,26 @@ function GameLevel1(deltaTime)
 			context.drawImage(LilCluckTut4.image, LilCluckTut4.x, LilCluckTut4.y, LilCluckTut4.width, LilCluckTut4.height);
 		context.restore();
 	}
+	else if(tutorial == 5)
+	{
+		var LilCluckTut5 = {
+		image: document.createElement("img"),
+		x: 34,
+		y: 510,
+		width: 530,
+		height: 160,
+		};
+		LilCluckTut5.image.src = "LilCluckTutDialog5.png";
+		context.save();
+			context.drawImage(LilCluckTut5.image, LilCluckTut5.x, LilCluckTut5.y, LilCluckTut5.width, LilCluckTut5.height);
+		context.restore();
+	}
+	
+	if(level1Door.broken == true & trigger1 == false)
+	{
+		trigger1 = true;
+		tutorial += 1;
+	}
 	
 	// Code For Bullets
 	// Update all the bullets
@@ -146,49 +182,49 @@ function GameLevel1(deltaTime)
 	
 	for(var i=0; i<bullets.length; i++)
 	{	
-		var hit = intersects(bullets[i].x, bullets[i].y, bullets[i].width, bullets[i].height, wall1.x, wall1.y, wall1.width, wall1.height);
+		var hit = intersects(bullets[i].x, bullets[i].y, bullets[i].width, bullets[i].height, level1Wall1.x, level1Wall1.y, level1Wall1.width, level1Wall1.height);
 		if(hit == true)
 		{
 			bullets.splice(i, 1);
 			break;
 		}
-		var hit = intersects(bullets[i].x, bullets[i].y, bullets[i].width, bullets[i].height, wall2.x, wall2.y, wall2.width, wall2.height);
+		var hit = intersects(bullets[i].x, bullets[i].y, bullets[i].width, bullets[i].height, level1Wall2.x, level1Wall2.y, level1Wall2.width, level1Wall2.height);
 		if(hit == true)
 		{
 			bullets.splice(i, 1);
 			break;
 		}
-		var hit = intersects(bullets[i].x, bullets[i].y, bullets[i].width, bullets[i].height, wall3.x, wall3.y, wall3.width, wall3.height);
+		var hit = intersects(bullets[i].x, bullets[i].y, bullets[i].width, bullets[i].height, level1Wall3.x, level1Wall3.y, level1Wall3.width, level1Wall3.height);
 		if(hit == true)
 		{
 			bullets.splice(i, 1);
 			break;
 		}
-		var hit = intersects(bullets[i].x, bullets[i].y, bullets[i].width, bullets[i].height, wall4.x, wall4.y, wall4.width, wall4.height);
+		var hit = intersects(bullets[i].x, bullets[i].y, bullets[i].width, bullets[i].height, level1Wall4.x, level1Wall4.y, level1Wall4.width, level1Wall4.height);
 		if(hit == true)
 		{
 			bullets.splice(i, 1);
 			break;
 		}
-		var hit = intersects(bullets[i].x, bullets[i].y, bullets[i].width, bullets[i].height, wall5.x, wall5.y, wall5.width, wall5.height);
+		var hit = intersects(bullets[i].x, bullets[i].y, bullets[i].width, bullets[i].height, level1Wall5.x, level1Wall5.y, level1Wall5.width, level1Wall5.height);
 		if(hit == true)
 		{
 			bullets.splice(i, 1);
 			break;
 		}
-		var hit = intersects(bullets[i].x, bullets[i].y, bullets[i].width, bullets[i].height, wall6.x, wall6.y, wall6.width, wall6.height);
+		var hit = intersects(bullets[i].x, bullets[i].y, bullets[i].width, bullets[i].height, level1Wall6.x, level1Wall6.y, level1Wall6.width, level1Wall6.height);
 		if(hit == true)
 		{
 			bullets.splice(i, 1);
 			break;
 		}
-		var hit = intersects(bullets[i].x, bullets[i].y, bullets[i].width, bullets[i].height, wall7.x, wall7.y, wall7.width, wall7.height);
+		var hit = intersects(bullets[i].x, bullets[i].y, bullets[i].width, bullets[i].height, level1Wall7.x, level1Wall7.y, level1Wall7.width, level1Wall7.height);
 		if(hit == true)
 		{
 			bullets.splice(i, 1);
 			break;
 		}
-		var hit = intersects(bullets[i].x, bullets[i].y, bullets[i].width, bullets[i].height, wall8.x, wall8.y, wall8.width, wall8.height);
+		var hit = intersects(bullets[i].x, bullets[i].y, bullets[i].width, bullets[i].height, level1Wall8.x, level1Wall8.y, level1Wall8.width, level1Wall8.height);
 		if(hit == true)
 		{
 			bullets.splice(i, 1);
@@ -197,7 +233,8 @@ function GameLevel1(deltaTime)
 			var hit = intersects(bullets[i].x, bullets[i].y, bullets[i].width, bullets[i].height, level1Wall9.x, level1Wall9.y, level1Wall9.width, level1Wall9.height);
 		if(hit == true)
 		{
-			
+			bullets.splice(i, 1);
+			break;
 		}
 		var hit = intersects(bullets[i].x, bullets[i].y, bullets[i].width, bullets[i].height, level1Wall10.x, level1Wall10.y, level1Wall10.width, level1Wall10.height);
 		if(hit == true)
@@ -235,14 +272,52 @@ function GameLevel1(deltaTime)
 			bullets.splice(i, 1);
 			break;
 		}
-		
+		if(level1Door.broken == false)
 		{
-			bullets.splice(i, 1);
-			break;
+			var hit = intersects(bullets[i].x, bullets[i].y, bullets[i].width, bullets[i].height, level1Door.x, level1Door.y, level1Door.width, level1Door.height);
+			if(hit == true)
+			{
+				if(door1Health > 0)
+				{
+					door1Health -= 1;
+					bullets.splice(i, 1);
+					break;
+				}
+				else if(door1Health == 0)
+				{
+					level1Door.broken = true;
+				}
+			}
 		}
-		
+		if(level3Door.broken == false)
+		{
+			var hit = intersects(bullets[i].x, bullets[i].y, bullets[i].width, bullets[i].height, level3Door.x, level3Door.y, level3Door.width, level3Door.height);
+			if(hit == true)
+			{
+				if(door3Health > 0)
+				{
+					door3Health -= 1;
+					bullets.splice(i, 1);
+					break;
+				}
+				else if(door3Health == 0)
+				{
+					level3Door.broken = true;
+				}
+			}
+		}
+		if(level2Door.broken == false)
+		{
+			var hit = intersects(bullets[i].x, bullets[i].y, bullets[i].width, bullets[i].height, level2Door.x, level2Door.y, level2Door.width, level2Door.height);
+			if(hit == true)
+			{
+				bullets.splice(i, 1);
+				break;
+			}
+		}
 	}
 	
+	console.log(bullets.length);
 	// draw all the bullets
 	for(var i=0; i<bullets.length; i++)
 	{

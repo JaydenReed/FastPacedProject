@@ -26,5 +26,9 @@ function playerShoot()
 	bullet.velocityX = xVel * BULLET_SPEED;
 	bullet.velocityY = yVel * BULLET_SPEED;
 	
+	console.log(bullet)
+	
 	bullets.push(bullet);
+	
+	console.log(bullets.length);
 }

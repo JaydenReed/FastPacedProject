@@ -87,6 +87,30 @@ function playerMovement()
 	{
 		player.y += 4;
 	}
+	var hit = intersects(player.x, player.y, player.width, player.height, level1Door.x, level1Door.y, level1Door.width, level1Door.height);
+	if(hit == true)
+	{
+		if(level1Door.broken == false)
+		{
+			player.x -= 4;
+		}
+	}
+	var hit = intersects(player.x, player.y, player.width, player.height, level3Door.x, level3Door.y, level3Door.width, level3Door.height);
+	if(hit == true)
+	{
+		if(level3Door.broken == false)
+		{
+			player.y -= 4;
+		}
+	}
+	var hit = intersects(player.x, player.y, player.width, player.height, level2Door.x, level2Door.y, level2Door.width, level2Door.height);
+	if(hit == true)
+	{
+		if(level2Door.broken == false)
+		{
+			player.y -= 4;
+		}
+	}
 }
 	
 	var hit = intersects(player.x, player.y, player.width, player.height, level1Exit.x, level1Exit.y, level1Exit.width, level1Exit.height);
