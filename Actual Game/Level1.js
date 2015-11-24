@@ -135,4 +135,117 @@ function GameLevel1(deltaTime)
 			context.drawImage(LilCluckTut4.image, LilCluckTut4.x, LilCluckTut4.y, LilCluckTut4.width, LilCluckTut4.height);
 		context.restore();
 	}
+	
+	// Code For Bullets
+	// Update all the bullets
+	for(var i=0; i<bullets.length; i++)
+	{
+		bullets[i].x += bullets[i].velocityX;
+		bullets[i].y += bullets[i].velocityY;
+	}
+	
+	for(var i=0; i<bullets.length; i++)
+	{	
+		var hit = intersects(bullets[i].x, bullets[i].y, bullets[i].width, bullets[i].height, wall1.x, wall1.y, wall1.width, wall1.height);
+		if(hit == true)
+		{
+			bullets.splice(i, 1);
+			break;
+		}
+		var hit = intersects(bullets[i].x, bullets[i].y, bullets[i].width, bullets[i].height, wall2.x, wall2.y, wall2.width, wall2.height);
+		if(hit == true)
+		{
+			bullets.splice(i, 1);
+			break;
+		}
+		var hit = intersects(bullets[i].x, bullets[i].y, bullets[i].width, bullets[i].height, wall3.x, wall3.y, wall3.width, wall3.height);
+		if(hit == true)
+		{
+			bullets.splice(i, 1);
+			break;
+		}
+		var hit = intersects(bullets[i].x, bullets[i].y, bullets[i].width, bullets[i].height, wall4.x, wall4.y, wall4.width, wall4.height);
+		if(hit == true)
+		{
+			bullets.splice(i, 1);
+			break;
+		}
+		var hit = intersects(bullets[i].x, bullets[i].y, bullets[i].width, bullets[i].height, wall5.x, wall5.y, wall5.width, wall5.height);
+		if(hit == true)
+		{
+			bullets.splice(i, 1);
+			break;
+		}
+		var hit = intersects(bullets[i].x, bullets[i].y, bullets[i].width, bullets[i].height, wall6.x, wall6.y, wall6.width, wall6.height);
+		if(hit == true)
+		{
+			bullets.splice(i, 1);
+			break;
+		}
+		var hit = intersects(bullets[i].x, bullets[i].y, bullets[i].width, bullets[i].height, wall7.x, wall7.y, wall7.width, wall7.height);
+		if(hit == true)
+		{
+			bullets.splice(i, 1);
+			break;
+		}
+		var hit = intersects(bullets[i].x, bullets[i].y, bullets[i].width, bullets[i].height, wall8.x, wall8.y, wall8.width, wall8.height);
+		if(hit == true)
+		{
+			bullets.splice(i, 1);
+			break;
+		}
+			var hit = intersects(bullets[i].x, bullets[i].y, bullets[i].width, bullets[i].height, level1Wall9.x, level1Wall9.y, level1Wall9.width, level1Wall9.height);
+		if(hit == true)
+		{
+			
+		}
+		var hit = intersects(bullets[i].x, bullets[i].y, bullets[i].width, bullets[i].height, level1Wall10.x, level1Wall10.y, level1Wall10.width, level1Wall10.height);
+		if(hit == true)
+		{
+			bullets.splice(i, 1);
+			break;
+		}
+		var hit = intersects(bullets[i].x, bullets[i].y, bullets[i].width, bullets[i].height, level1Wall11.x, level1Wall11.y, level1Wall11.width, level1Wall11.height);
+		if(hit == true)
+		{
+			bullets.splice(i, 1);
+			break;
+		}
+		var hit = intersects(bullets[i].x, bullets[i].y, bullets[i].width, bullets[i].height, level1Wall12.x, level1Wall12.y, level1Wall12.width, level1Wall12.height);
+		if(hit == true)
+		{
+			bullets.splice(i, 1);
+			break;
+		}
+		var hit = intersects(bullets[i].x, bullets[i].y, bullets[i].width, bullets[i].height, level1Wall13.x, level1Wall13.y, level1Wall13.width, level1Wall13.height);
+		if(hit == true)
+		{
+			bullets.splice(i, 1);
+			break;
+		}
+		var hit = intersects(bullets[i].x, bullets[i].y, bullets[i].width, bullets[i].height, level1Wall14.x, level1Wall14.y, level1Wall14.width, level1Wall14.height);
+		if(hit == true)
+		{
+			bullets.splice(i, 1);
+			break;
+		}
+		var hit = intersects(bullets[i].x, bullets[i].y, bullets[i].width, bullets[i].height, level1Wall15.x, level1Wall15.y, level1Wall15.width, level1Wall15.height);
+		if(hit == true)
+		{
+			bullets.splice(i, 1);
+			break;
+		}
+		
+		{
+			bullets.splice(i, 1);
+			break;
+		}
+		
+	}
+	
+	// draw all the bullets
+	for(var i=0; i<bullets.length; i++)
+	{
+		context.drawImage(bullets[i].image, bullets[i].x - bullets[i].width/2, bullets[i].y - bullets[i].height/2);
+	}
 }
