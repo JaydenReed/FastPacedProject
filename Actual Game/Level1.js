@@ -1,3 +1,12 @@
+var key = {
+	image: document.createElement("img"),
+	x: 639,
+	y: 582,
+	width: 24,
+	height: 24,
+};
+key.image.src = "Key.png";
+
 function GameLevel1(deltaTime)
 {
 	// Removes the cursor from the screen
@@ -24,6 +33,14 @@ function GameLevel1(deltaTime)
 		context.drawImage(WorldBackground.image, WorldBackground.x, WorldBackground.y, WorldBackground.width, WorldBackground.height);
 	context.restore();
 	
+	if(Level1Enemy.isDead == true & player.hasLevel1Key == false)
+	{
+		context.save();
+			context.drawImage(key.image, key.x, key.y, key.width, key.height);
+		context.restore();
+	}
+	
+	// Draws the doors
 	if(level1Door.broken == false)
 	{
 		context.save();
@@ -36,18 +53,63 @@ function GameLevel1(deltaTime)
 			context.drawImage(level3Door.image, level3Door.x, level3Door.y, level3Door.width, level3Door.height);
 		context.restore();
 	}
-	context.save();
-		context.drawImage(level2Door.image, level2Door.x, level2Door.y, level2Door.width, level2Door.height);
-	context.restore();
+	if(level2Door.unlocked == false)
+	{
+		context.save();
+			context.drawImage(level2Door.image, level2Door.x, level2Door.y, level2Door.width, level2Door.height);
+		context.restore();
+	}
 	
 	// Draws the player
-	player.rotation = Math.atan2(player.y - mouseY, player.x - mouseX) + Math.PI/2;
-	
+	if(player.isDead == false)
+	{
+		player.rotation = Math.atan2(player.y - mouseY, player.x - mouseX) + Math.PI/2;
+	}
+
 	context.save();
 		context.translate(player.x + player.width/2, player.y + player.height/2);
 		context.rotate(player.rotation);
 		context.drawImage(player.image, -player.width/2, -player.height/2);
 	context.restore();
+	
+	// Makes the enemy move towards the player when he enters the room
+	var enemyDirection = new Vector2();
+	var hit = intersects(player.x, player.y, player.width, player.height, level1Room.x, level1Room.y, level1Room.width, level1Room.height);
+	if(hit == true & Level1Enemy.isDead == false)
+	{
+		enemyDirection.set(player.x - Level1Enemy.x, player.y - Level1Enemy.y);
+		var distance = enemyDirection.Magnitude();
+		
+		Level1Enemy.velocity.x = (enemyDirection.x / distance) * ENEMY_SPEED;
+		Level1Enemy.velocity.y = (enemyDirection.y / distance) * ENEMY_SPEED;
+
+		Level1Enemy.x += Level1Enemy.velocity.x * deltaTime;
+		Level1Enemy.y += Level1Enemy.velocity.y * deltaTime;
+		
+		Level1Enemy.rotation = Math.atan2(Level1Enemy.y - player.y, Level1Enemy.x - player.x) - Math.PI/2;
+	}
+	
+	console.log(Level1Enemy.isDead)
+	//Code to draw Enemy
+	context.save();
+		context.translate(Level1Enemy.x + Level1Enemy.width/2, Level1Enemy.y + Level1Enemy.height/2);
+		context.rotate(Level1Enemy.rotation);
+		context.drawImage(Level1Enemy.image, -Level1Enemy.width/2, -Level1Enemy.height/2);
+	context.restore();
+	
+	var hit = intersects(player.x, player.y, player.width, player.height, Level1Enemy.x, Level1Enemy.y, Level1Enemy.width, Level1Enemy.height);
+	if(hit == true & Level1Enemy.isDead == false)
+	{
+		player.isDead = true;
+	}
+	
+	var hit = intersects(player.x, player.y, player.width, player.height, key.x, key.y, key.width, key.height);
+	if(hit == true & trigger3 == false)
+	{
+		player.hasLevel1Key = true;
+		tutorial += 1;
+		trigger3 = true;
+	}
 	
 	// Draws the cursor
 	DrawCursor(mouseX, mouseY)
@@ -55,7 +117,7 @@ function GameLevel1(deltaTime)
 	// Calls the player movement
 	playerMovement()
 	
-	// Creates the dialog Timer
+	// Creates the dialogue Timer
 	if(keyboard.isKeyDown(keyboard.KEY_E) == true & dialogTimer == 0)
 	{
 		if(tutorial == 1 | tutorial == 2)
@@ -71,7 +133,7 @@ function GameLevel1(deltaTime)
 		dialogTimer -= 1;
 	}
 	
-	// Displays the tutorial dialogs
+	// Displays the tutorial dialogues
 	if(tutorial == 1)
 	{
 		var LilCluckTut1 = {
@@ -163,6 +225,34 @@ function GameLevel1(deltaTime)
 		LilCluckTut5.image.src = "LilCluckTutDialog5.png";
 		context.save();
 			context.drawImage(LilCluckTut5.image, LilCluckTut5.x, LilCluckTut5.y, LilCluckTut5.width, LilCluckTut5.height);
+		context.restore();
+	}
+	else if(tutorial == 6)
+	{
+		var LilCluckTut6 = {
+		image: document.createElement("img"),
+		x: 34,
+		y: 510,
+		width: 530,
+		height: 160,
+		};
+		LilCluckTut6.image.src = "LilCluckTutDialog6.png";
+		context.save();
+			context.drawImage(LilCluckTut6.image, LilCluckTut6.x, LilCluckTut6.y, LilCluckTut6.width, LilCluckTut6.height);
+		context.restore();
+	}
+	else if(tutorial == 7)
+	{
+		var LilCluckTut7 = {
+		image: document.createElement("img"),
+		x: 34,
+		y: 510,
+		width: 530,
+		height: 160,
+		};
+		LilCluckTut7.image.src = "LilCluckTutDialog7.png";
+		context.save();
+			context.drawImage(LilCluckTut7.image, LilCluckTut7.x, LilCluckTut7.y, LilCluckTut7.width, LilCluckTut7.height);
 		context.restore();
 	}
 	
@@ -314,6 +404,18 @@ function GameLevel1(deltaTime)
 				bullets.splice(i, 1);
 				break;
 			}
+		}
+		var hit = intersects(bullets[i].x, bullets[i].y, bullets[i].width, bullets[i].height, Level1Enemy.x, Level1Enemy.y, Level1Enemy.width, Level1Enemy.height);
+		if(hit == true)
+		{
+			Level1Enemy.isDead = true;
+			bullets.splice(i, 1);
+			if(trigger2 == false)
+			{
+				tutorial += 1;
+				trigger2 = true;
+			}
+			break;
 		}
 	}
 	

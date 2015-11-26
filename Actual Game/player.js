@@ -6,6 +6,8 @@ var player = {
 		rotation: 0,
 		width: 20,
 		height: 18,
+		isDead: false,
+		hasLevel1Key: false
 };
 player.image.src = "Player.png";
 
@@ -106,9 +108,13 @@ function playerMovement()
 	var hit = intersects(player.x, player.y, player.width, player.height, level2Door.x, level2Door.y, level2Door.width, level2Door.height);
 	if(hit == true)
 	{
-		if(level2Door.broken == false)
+		if(level2Door.unlocked == false)
 		{
 			player.y -= 4;
+		}
+		if(player.hasLevel1Key == true)
+		{
+			level2Door.unlocked = true;
 		}
 	}
 }
@@ -119,7 +125,7 @@ function playerMovement()
 		gameState = STATE_GAMELEVEL2;
 	}	
 	
-	if(keyboard.isKeyDown(keyboard.KEY_S) == true)
+	if(keyboard.isKeyDown(keyboard.KEY_S) == true & player.isDead == false)
 	{
 		if(keyboard.isKeyDown(keyboard.KEY_D) == true)
 		{
@@ -136,7 +142,7 @@ function playerMovement()
 			player.y += 4;
 		}
 	}
-	if(keyboard.isKeyDown(keyboard.KEY_W) == true)
+	if(keyboard.isKeyDown(keyboard.KEY_W) == true & player.isDead == false)
 	{
 		if(keyboard.isKeyDown(keyboard.KEY_A) == true)
 		{
@@ -153,11 +159,11 @@ function playerMovement()
 			player.y -= 4;
 		}
 	}
-	if(keyboard.isKeyDown(keyboard.KEY_A) == true && keyboard.isKeyDown(keyboard.KEY_W) == false && keyboard.isKeyDown(keyboard.KEY_S) == false)
+	if(keyboard.isKeyDown(keyboard.KEY_A) == true && keyboard.isKeyDown(keyboard.KEY_W) == false && keyboard.isKeyDown(keyboard.KEY_S) == false & player.isDead == false)
 	{
 		player.x -= 4;
 	}
-	if(keyboard.isKeyDown(keyboard.KEY_D) == true && keyboard.isKeyDown(keyboard.KEY_W) == false && keyboard.isKeyDown(keyboard.KEY_S) == false)
+	if(keyboard.isKeyDown(keyboard.KEY_D) == true && keyboard.isKeyDown(keyboard.KEY_W) == false && keyboard.isKeyDown(keyboard.KEY_S) == false & player.isDead == false)
 	{
 		player.x += 4;
 	}

@@ -54,7 +54,7 @@ else
 //-----------------
 function canvasClick(event)
 {
-	if(playerPistol == true)
+	if(playerPistol == true & player.isDead == false)
 	{
 		playerShoot();
 	}

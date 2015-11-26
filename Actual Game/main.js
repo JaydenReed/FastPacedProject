@@ -34,6 +34,7 @@ function getDeltaTime() // Only call this function once per frame
 var SCREEN_WIDTH = canvas.width;
 var SCREEN_HEIGHT = canvas.height;
 var BULLET_SPEED = 10;
+var ENEMY_SPEED = 240;
 
 // Non-Constant Variables
 var mainMenuSelection = 0;
@@ -60,6 +61,8 @@ var door1Health = 5;
 var door3Health = 5;
 var door2Unlocked = false;
 var trigger1 = false;
+var trigger2 = false;
+var trigger3 = false;
 
 // Creates the Menu Music
 MenuMusic = new Howl(

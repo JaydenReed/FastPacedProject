@@ -13,7 +13,7 @@ var level2Door = {
 	y: 379,
 	width: 60,
 	height: 8,
-	broken: false
+	unlocked: false
 };
 level2Door.image.src = "DoorHorizontalLocked.png";
 var level3Door = {

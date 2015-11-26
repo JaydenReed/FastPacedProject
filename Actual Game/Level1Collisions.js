@@ -94,3 +94,9 @@ var level1Exit = {
 	width: 62,
 	height: 22
 };
+var level1Room = {
+	x: 613,
+	y: 386,
+	width: 251,
+	height: 224
+};
